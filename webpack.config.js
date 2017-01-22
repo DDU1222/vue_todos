@@ -9,6 +9,7 @@ const distDir = path.join(rootDir, 'dist');
 
 module.exports = {
   entry: [
+    'webpack/hot/only-dev-server',
     'webpack-dev-server/client?http://localhost:8080',
     `${srcDir}/index.js`
   ],
