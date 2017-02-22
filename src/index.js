@@ -12,7 +12,7 @@ new Vue({
       <div class="todos_container">
         <ul>
           <li v-for="(todo, index) in todos">
-            <input class="toggle" type="checkbox" />
+            <input class="toggle" type="checkbox" v-on:click="change(index)"/>
             <span>{{todo.content}}</span>
             <i class="delete" v-on:click="$emit(todos.splice(index, 1));count --">x</i>
           </li>
@@ -37,6 +37,11 @@ new Vue({
         console.log(index)
         this.count --;
         $emit(this.todos.splice(index, 1))
+      },
+      change: function (index) {
+        console.log(index);
+        this.todos[index].status = !this.todos[index].status;
+        console.log(this.todos[index].status);
       }
     }
 });
